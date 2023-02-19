@@ -11,6 +11,9 @@ function blob_fixup() {
         vendor/lib64/hw/consumerir.msm8953.so)
             sed -i "s|/dev/spidev6.1|/dev/spidev5.1|g" "${2}"
             ;;
+        vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so)
+            "${PATCHELF_0_8}" --remove-needed "libprotobuf-cpp-lite.so" "${2}"
+            ;;
     esac
 }
 
